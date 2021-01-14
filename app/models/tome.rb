@@ -1,0 +1,2 @@
+class Tome < ApplicationRecord
+end
