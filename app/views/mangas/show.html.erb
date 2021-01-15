@@ -2,3 +2,11 @@
 <h1><%= @manga.auteur %></h1>
 <p><%= @manga.description %></p>
 <br>
+
+<h2>Tomes</h2>
+<%= link_to "Ajoutez un tome", new_manga_tome_path(@manga) %>
+<ul>
+  <% @manga.tomes.each do |tome| %>
+    <li><%= tome.title %> - <%= tome.description %></li>
+  <% end %>
+</ul>

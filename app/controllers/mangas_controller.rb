@@ -15,7 +15,6 @@ before_action :set_manga, only: [:show, :edit, :update, :destroy]
 	def create
 		@manga = Manga.new(manga_params)
 		authorize @manga
-		#@manga.user = current_user
 		if @manga.save
 			redirect_to manga_path(@manga)
 		else
