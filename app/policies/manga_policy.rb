@@ -9,7 +9,7 @@ class MangaPolicy < ApplicationPolicy
   	true
   end
   def new?
-    true
+    user.admin == true
   end
 
   def create?
@@ -17,7 +17,7 @@ class MangaPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
+    record.user.admin == true
   end
 
   def update?

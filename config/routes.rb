@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	get '/', to: 'mangas#index'
   	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   	resources :mangas do
-    	resources :tomes, only: [:new, :create, :show]
+    	resources :tomes, only: [:new, :create, :show, :edit]
   		end
   	resources :tomes do
   		resources :reviews, only: [:new, :create, :show, :edit, :update, :delete]

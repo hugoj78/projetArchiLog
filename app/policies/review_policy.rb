@@ -17,6 +17,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def edit?
+    #raise
     record.user == user
     # record.tome == tomate
   end

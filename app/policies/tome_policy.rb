@@ -9,14 +9,16 @@ class TomePolicy < ApplicationPolicy
   	true
   end
   def new?
-    true
+    user.admin == true
   end
   def create?
     new?
   end
 
   def edit?
-    #true
+    #raise
+    true
+
     #record.user == user
     #record.id == tome_id
   end

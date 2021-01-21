@@ -5,8 +5,7 @@
 			<li><%= link_to manga.name , manga_path(manga) %></li>
 	<% end %>
 </ul>
+<% if policy(@mangas).new? %>
+	<%= link_to "Add manga", new_manga_path %>
+<% end %>
 
-<%= link_to "Add manga", new_manga_path %>
-
-
-<%= link_to "Disconnect", destroy_user_session_path(@user) %>
