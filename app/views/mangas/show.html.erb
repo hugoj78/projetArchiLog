@@ -7,6 +7,7 @@
 <%= link_to "Ajoutez un tome", new_manga_tome_path(@manga) %>
 <ul>
   <% @manga.tomes.each do |tome| %>
-    <li><%= tome.title %> - <%= tome.description %></li>
+    
+    <li><%= link_to tome.title , tome_path(tome) %>  - <%= tome.description %></li>
   <% end %>
 </ul>

@@ -1,0 +1,10 @@
+<h1><%= @tome.title %></h1>
+<p><%= @tome.description %></p>
+
+<h2>Reviews</h2>
+<%= link_to "Laissez un avis", new_tome_review_path(@tome) %>
+<ul>
+  <% @tome.reviews.each do |review| %>
+    <li><%= review.user.email %>- <%= review.rating %> - <%= review.description %></li>
+  <% end %>
+</ul>

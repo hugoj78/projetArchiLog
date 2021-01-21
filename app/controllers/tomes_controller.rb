@@ -1,5 +1,7 @@
 class TomesController < ApplicationController
   before_action :set_manga, only: [:new, :create]
+  before_action :set_tome, only: [:show]
+  
   def index
     @tome = policy_scope(Tome)
   end
@@ -8,10 +10,12 @@ class TomesController < ApplicationController
     authorize @tome
   end
 
+  def show
+  end
+
   def create
     @tome = Tome.new(tome_params)
     @tome.manga = @manga
-    authorize @tome
     if @tome.save
       redirect_to manga_path(@manga)
     else
@@ -22,6 +26,11 @@ class TomesController < ApplicationController
   def set_manga
     @manga = Manga.find(params[:manga_id])
     authorize @manga
+  end
+
+  def set_tome
+    @tome = Tome.find(params[:id])
+    authorize @tome
   end
 
   private
