@@ -14,4 +14,14 @@ class TomePolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def edit?
+    true
+    #record.user == user
+  end
+
+  def update?
+    edit?
+  end
+
 end

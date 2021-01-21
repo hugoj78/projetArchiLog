@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_tome, only: [:new, :create]
-	before_action :set_review, only: [:show]
+  before_action :set_tome, only: [:new, :create, :edit]
+	before_action :set_review, only: [:show, :edit, :update]
 
  	def index
   	@review = policy_scope(review)
@@ -13,6 +13,18 @@ class ReviewsController < ApplicationController
 
 	def show
 	end
+
+  def edit
+  end
+
+  def update
+    @review.update(review_params)
+    if @review.save
+      redirect_to tome_path(@tome)
+    else
+      render 'edit'
+    end
+  end
 
 	def create
   	@review = Review.new(review_params)
