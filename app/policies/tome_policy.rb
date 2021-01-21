@@ -18,6 +18,7 @@ class TomePolicy < ApplicationPolicy
   def edit?
     #true
     #record.user == user
+    #record.id == tome_id
   end
 
   def update?
