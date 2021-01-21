@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_tome, only: [:new, :create, :edit, :update]
+  before_action :set_tome, only: [:new, :edit, :update, :create]
   before_action :set_review, only: [:show, :edit, :update]
 
  	def index

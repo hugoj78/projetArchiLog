@@ -1,5 +1,5 @@
 class MangasController < ApplicationController
-	before_action :set_manga, only: [:show, :edit, :update, :destroy]
+	before_action :set_manga, only: [:show, :edit, :update, :destroy] 
 	def index
 		@mangas = policy_scope(Manga)
 	end
@@ -14,6 +14,7 @@ class MangasController < ApplicationController
 
 	def create
 		@manga = Manga.new(manga_params)
+		@manga.user = current_user
 		authorize @manga
 		if @manga.save
 			redirect_to manga_path(@manga)

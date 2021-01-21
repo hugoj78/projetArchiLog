@@ -4,10 +4,13 @@
 <br>
 
 <h2>Tomes</h2>
+<% if policy(@manga).new? %>
 <%= link_to "Ajoutez un tome", new_manga_tome_path(@manga) %>
+<% end %>
 <ul>
   <% @manga.tomes.each do |tome| %>
     
     <li><%= link_to tome.title , tome_path(tome) %>  - <%= tome.description %></li>
+    <li><li><%= link_to 'Edit', edit_manga_tome_path(@manga, tome) %></li>
   <% end %>
 </ul>
