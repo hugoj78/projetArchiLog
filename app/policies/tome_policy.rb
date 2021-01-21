@@ -16,7 +16,7 @@ class TomePolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    #true
     #record.user == user
   end
 
