@@ -1,0 +1,20 @@
+<h1><%= @tome.title %></h1>
+<p><%= @tome.description %></p>
+
+<h2>Reviews</h2>
+<%= link_to "Laissez un avis", new_tome_review_path(@tome) %>
+
+<% @tome.reviews.each do |review| %>
+	<ul>
+    	<li><%= review.user.email %>- <%= review.rating %> - <%= review.description %>
+    	</li>
+    	<% if policy(review).edit? %>
+			<li><%= link_to 'Edit', edit_tome_review_path(@tome, review) %></li>
+		<% end %>
+		<br>
+		<% if policy(review).edit? %>
+			<li><%= link_to "Supprimer", tome_review_path(review), method: :delete %></li>
+		<% end %>
+		<br>
+	</ul>
+<% end %>

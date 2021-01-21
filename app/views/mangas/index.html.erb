@@ -1,0 +1,12 @@
+<h1> All Mangas </h1>
+
+<ul>
+	<% @mangas.each do |manga| %>
+			<li><%= link_to manga.name , manga_path(manga) %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Add manga", new_manga_path %>
+
+
+<%= link_to "Disconnect", destroy_user_session_path(@user) %>
