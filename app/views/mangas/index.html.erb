@@ -1,7 +1,13 @@
 <h1> All Mangas </h1>
 
+
+<%= form_tag(mangas_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Tweets" %>
+<%= submit_tag "Search" %>
+<% end %>
+
 <ul>
-	<% @mangas.each do |manga| %>
+	<% @researchs.each do |manga| %>
 			<li><%= link_to manga.name , manga_path(manga) %> 
 				<% if policy(manga).edit? %> 
 					<%= link_to 'Edit', edit_manga_path(manga) %> 
@@ -13,7 +19,8 @@
 
 	<% end %>
 </ul>
-<% if policy(@mangas).new? %>
+<% if policy(@researchs).new? %>
 	<%= link_to "Add manga", new_manga_path %>
 <% end %>
+
 
