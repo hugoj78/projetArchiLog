@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   		end
 
 	resource :reviews
+
+	resource :researchs
 end

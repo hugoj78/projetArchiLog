@@ -1,0 +1,21 @@
+<%= form_tag(researchs_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Tweets" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<ul>
+  <% @researchs.each do |manga| %>
+    
+    <li><%= link_to manga.name , manga_path(manga) %>  
+    	
+    	<% if policy(manga).edit? %> 
+    		 - <%= link_to 'Editer', edit_manga_path(manga) %> 
+    	<% end %>
+
+    	<% if policy(manga).destroy? %>
+			- <%= link_to "Supprimer", manga_path(manga), method: :delete %>
+    	<% end %>
+    </li>
+
+  <% end %>
+</ul>
