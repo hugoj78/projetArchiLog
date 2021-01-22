@@ -1,6 +1,7 @@
 <h1><%= @manga.name %></h1>
 <h1><%= @manga.auteur %></h1>
 <p><%= @manga.description %></p>
+<%= cl_image_tag @manga.photo.key if @manga.photo.attached? %>
 <br>
 
 <h2>Tomes</h2>
