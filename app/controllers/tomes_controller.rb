@@ -55,6 +55,6 @@ class TomesController < ApplicationController
   private
 
   def tome_params
-    params.require(:tome).permit(:title, :description, :photo)
+    params.require(:tome).permit(:title, :description, :number, :photo)
   end
 end

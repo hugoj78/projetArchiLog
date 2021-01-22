@@ -11,8 +11,8 @@
 <ul>
   <% @manga.tomes.each do |tome| %>
     
-    <li><%= link_to tome.title , tome_path(tome) %>  
-    	
+    <li><%= link_to tome.title , tome_path(tome) %>  :
+    	<%= tome.number %>
     	<% if policy(tome).edit? %> 
     		 - <%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
     	<% end %>
