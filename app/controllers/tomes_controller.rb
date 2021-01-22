@@ -1,6 +1,6 @@
 class TomesController < ApplicationController
-  before_action :set_manga, only: [:new, :create, :edit, :update]
-  before_action :set_tome, only: [:show, :edit, :update]
+  before_action :set_manga, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_tome, only: [:show, :edit, :update, :destroy]
   
   def index
     @tome = policy_scope(Tome)
@@ -44,6 +44,12 @@ class TomesController < ApplicationController
   def set_tome
     @tome = Tome.find(params[:id])
     authorize @tome
+  end
+
+
+  def destroy
+    Tome.destroy(params[:id])
+    redirect_to manga_path(@manga)
   end
 
   private

@@ -22,6 +22,7 @@ class MangasController < ApplicationController
 			render 'new'
 		end
 	end
+	
 	def edit
 	end
 
@@ -37,7 +38,7 @@ class MangasController < ApplicationController
 
 	def destroy
 		Manga.destroy(params[:id])
-    	redirect_to manga_path
+    	redirect_to mangas_path
 	end
 
 	private

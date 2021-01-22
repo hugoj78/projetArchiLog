@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_tome, only: [:new, :edit, :update, :create]
-  before_action :set_review, only: [:show, :edit, :update]
+  before_action :set_tome, only: [:new, :edit, :update, :create, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
  	def index
   	@review = policy_scope(review)
@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
   	@review = Review.new(review_params)
   	@review.tome = @tome
   	@review.user = current_user
+    authorize @review
   	if @review.save
     	redirect_to tome_path(@tome)
   	else
@@ -39,13 +40,19 @@ class ReviewsController < ApplicationController
 
 	def set_tome
   	@tome = Tome.find(params[:tome_id])
-  	authorize @tome
+  	#authorize @tome
 	end
 
 	def set_review
   	@review = Review.find(params[:id])
   	authorize @review
 	end
+
+
+  def destroy
+    Review.destroy(params[:id])
+    redirect_to tome_path(@tome)
+  end
 
 	private
 

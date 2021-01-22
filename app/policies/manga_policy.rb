@@ -17,7 +17,7 @@ class MangaPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user.admin == true
+    user.admin == true
   end
 
   def update?
@@ -25,6 +25,6 @@ class MangaPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    user.admin == true
   end
 end

@@ -10,7 +10,16 @@
 <ul>
   <% @manga.tomes.each do |tome| %>
     
-    <li><%= link_to tome.title , tome_path(tome) %>  - <%= tome.description %></li>
-    <li><li><%= link_to 'Edit', edit_manga_tome_path(@manga, tome) %></li>
+    <li><%= link_to tome.title , tome_path(tome) %>  
+    	
+    	<% if policy(tome).edit? %> 
+    		 - <%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
+    	<% end %>
+
+    	<% if policy(tome).destroy? %>
+			- <%= link_to "Supprimer", manga_tome_path(@manga, tome), method: :delete %>
+    	<% end %>
+    </li>
+
   <% end %>
 </ul>

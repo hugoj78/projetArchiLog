@@ -2,7 +2,15 @@
 
 <ul>
 	<% @mangas.each do |manga| %>
-			<li><%= link_to manga.name , manga_path(manga) %></li>
+			<li><%= link_to manga.name , manga_path(manga) %> 
+				<% if policy(manga).edit? %> 
+					<%= link_to 'Edit', edit_manga_path(manga) %> 
+				<% end %>
+
+				<% if policy(manga).destroy? %> 
+				<span><%= link_to 'Destroy', manga_path(manga), method: :delete, class: 'btn btn-danger' %></span></li>
+				<% end %>
+
 	<% end %>
 </ul>
 <% if policy(@mangas).new? %>
