@@ -1,6 +1,6 @@
-<h1><%= @tome.title %></h1>
+<h1><%= @tome.title %>  : <%= @tome.number %></h1>
 <p><%= @tome.description %></p>
-
+<%= cl_image_tag @tome.photo.key if @tome.photo.attached? %>
 <h2>Reviews</h2>
 <%= link_to "Laissez un avis", new_tome_review_path(@tome) %>
 

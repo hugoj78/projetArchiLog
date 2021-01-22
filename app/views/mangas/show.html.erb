@@ -1,6 +1,7 @@
 <h1><%= @manga.name %></h1>
 <h1><%= @manga.auteur %></h1>
 <p><%= @manga.description %></p>
+<%= cl_image_tag @manga.photo.key if @manga.photo.attached? %>
 <br>
 
 <h2>Tomes</h2>
@@ -10,8 +11,8 @@
 <ul>
   <% @manga.tomes.each do |tome| %>
     
-    <li><%= link_to tome.title , tome_path(tome) %>  
-    	
+    <li><%= link_to tome.title , tome_path(tome) %>  :
+    	<%= tome.number %>
     	<% if policy(tome).edit? %> 
     		 - <%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
     	<% end %>
