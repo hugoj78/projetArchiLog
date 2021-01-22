@@ -5,6 +5,6 @@ class Manga < ApplicationRecord
 	has_one_attached :photo
 	  
 	def self.search(search)
-    	where("name LIKE ?", "%#{search}%")
+    	where("upper(name) LIKE ?", "%#{search.upcase}%")
     end
 end
