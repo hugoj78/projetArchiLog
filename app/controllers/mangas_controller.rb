@@ -1,18 +1,11 @@
 class MangasController < ApplicationController
 	before_action :set_manga, only: [:show, :edit, :update, :destroy] 
 	def index
-		
-
-		def index
-			#@researchs = Manga.all
-			@researchs = policy_scope(Manga)
-			#@mangas = policy_scope(Manga)
-			# authorize @researchs
-			if params[:search]
+		@researchs = policy_scope(Manga)
+		if params[:search]
 			@researchs = Manga.search(params[:search])
-			else
+		else
 			@researchs = Manga.all
-			end
 		end
 	end
 
@@ -29,6 +22,8 @@ class MangasController < ApplicationController
 		@manga.user = current_user
 		authorize @manga
 		if @manga.save
+			TomeJob.perform_now(@manga, current_user)
+			#TomeJob.perform_later(@manga, current_user)
 			redirect_to manga_path(@manga)
 		else
 			render 'new'
@@ -49,7 +44,8 @@ class MangasController < ApplicationController
 	end
 
 	def destroy
-		Manga.destroy(params[:id])
+		MangaJob.perform_now(params[:id])
+		#Manga.destroy(params[:id])
     	redirect_to mangas_path
 	end
 
