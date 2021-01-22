@@ -1,12 +1,12 @@
 class MangasController < ApplicationController
 	before_action :set_manga, only: [:show, :edit, :update, :destroy] 
+
 	def index
 		@researchs = policy_scope(Manga)
 		if params[:search]
 			@researchs = Manga.search(params[:search])
 		else
 			@researchs = Manga.all
-		end
 	end
 
 	def show

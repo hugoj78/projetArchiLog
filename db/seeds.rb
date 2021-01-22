@@ -19,7 +19,12 @@ user = User.create(email: 'user@manga.com', password: '123456', admin: false);
 ['Naruto', 'One Piece', 'SNK', 'Death Note'].each do |name|
     manga = Manga.create(name: name, user_id: admin.id);
     for i in 1..5 do
-      Tome.create(title: "tome #{i}", manga_id: manga.id, user_id: admin.id, number: i);
+      tome = Tome.create(title: "tome #{i}", manga_id: manga.id, user_id: admin.id, number: i);
+
+      list_review = ["nul/20", "Ah OK quoi", "Je suis mitigé", "Vreeeuuumment bien", "Wow incroyable wesh canne à pêche"]
+      list_review.each do |description|
+        Review.create(description: description, rating: list_review.index(description), tome_id: tome.id, user_id: admin.id);
+      end
     end
     puts "#{name} created"
   end

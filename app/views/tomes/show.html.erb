@@ -7,6 +7,7 @@
 
 <% @tome.reviews.each do |review| %>
 <br>
+<br>
 		<%= review.user.email %>- <%= review.rating %> - <%= review.description %>
     	<% if policy(review).edit? %>
 			<%= link_to 'Edit', edit_tome_review_path(@tome, review) %>
@@ -14,5 +15,6 @@
 		<% if policy(review).destroy? %>
 			<%= link_to "Supprimer", tome_review_path(@tome, review), method: :delete %>
 		<% end %>
-<br>
 <% end %>
+<br>
+<br>
