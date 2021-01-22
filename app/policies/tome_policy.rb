@@ -16,15 +16,14 @@ class TomePolicy < ApplicationPolicy
   end
 
   def edit?
-    #raise
-    true
-
-    #record.user == user
-    #record.id == tome_id
+    user.admin == true
   end
 
   def update?
     edit?
   end
 
+  def destroy?
+    user.admin == true
+  end
 end

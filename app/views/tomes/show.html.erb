@@ -4,17 +4,15 @@
 <h2>Reviews</h2>
 <%= link_to "Laissez un avis", new_tome_review_path(@tome) %>
 
+
 <% @tome.reviews.each do |review| %>
-	<ul>
-    	<li><%= review.user.email %>- <%= review.rating %> - <%= review.description %>
-    	</li>
+<br>
+		<%= review.user.email %>- <%= review.rating %> - <%= review.description %>
     	<% if policy(review).edit? %>
-			<li><%= link_to 'Edit', edit_tome_review_path(@tome, review) %></li>
+			<%= link_to 'Edit', edit_tome_review_path(@tome, review) %>
 		<% end %>
-		<br>
-		<% if policy(review).edit? %>
-			<li><%= link_to "Supprimer", tome_review_path(review), method: :delete %></li>
+		<% if policy(review).destroy? %>
+			<%= link_to "Supprimer", tome_review_path(@tome, review), method: :delete %>
 		<% end %>
-		<br>
-	</ul>
+<br>
 <% end %>
