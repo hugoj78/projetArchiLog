@@ -1,18 +1,15 @@
 class MangasController < ApplicationController
 	before_action :set_manga, only: [:show, :edit, :update, :destroy] 
-	def index
 		
-
-		def index
-			#@researchs = Manga.all
-			@researchs = policy_scope(Manga)
-			#@mangas = policy_scope(Manga)
-			# authorize @researchs
-			if params[:search]
-			@researchs = Manga.search(params[:search])
-			else
-			@researchs = Manga.all
-			end
+	def index
+		#@researchs = Manga.all
+		@researchs = policy_scope(Manga)
+		#@mangas = policy_scope(Manga)
+		# authorize @researchs
+		if params[:search]
+		@researchs = Manga.search(params[:search])
+		else
+		@researchs = Manga.all
 		end
 	end
 
