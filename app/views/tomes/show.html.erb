@@ -1,20 +1,62 @@
-<h1><%= @tome.title %>  : <%= @tome.number %></h1>
-<p><%= @tome.description %></p>
-<%= cl_image_tag @tome.photo.key if @tome.photo.attached? %>
-<h2>Reviews</h2>
-<%= link_to "Laissez un avis", new_tome_review_path(@tome) %>
+<div class ="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-2"> 
+		</div>
+			<div class="col-sm-8">
+				<div class="card text-center">
+					<%= cl_image_tag @tome.photo.key, class:"card-img-top" if @tome.photo.attached? %>
+					<div class="card-body">
+						<h5 class="card-title"><%=@tome.title%></h5>
+						<h6 class="card-subtitle mb-2 text-muted">tome n* <%=@tome.number%></h6>
+						<p class="card-text"><%=@tome.description%></p>
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<br>
+
+	<h2 class="text-center">Reviews</h2>
 
 
-<% @tome.reviews.each do |review| %>
-<br>
-<br>
-		<%= review.user.email %>- <%= review.rating %> - <%= review.description %>
-    	<% if policy(review).edit? %>
-			<%= link_to 'Edit', edit_tome_review_path(@tome, review) %>
-		<% end %>
-		<% if policy(review).destroy? %>
-			<%= link_to "Supprimer", tome_review_path(@tome, review), method: :delete %>
-		<% end %>
-<% end %>
-<br>
-<br>
+	<% @tome.reviews.each do |review| %>
+
+
+		<div class="card text-center">
+			<div class="card-body">
+				<h5 class="card-title"><%=review.user.email%></h5>
+				<h6 class="card-subtitle mb-2 text-muted"> note : 
+					<%if review.rating != 0%>
+						<%for i in 1..review.rating.clamp(1,5)%>
+							⭐
+						<%end%>
+						<%for y in 1..(5-review.rating.clamp(1,5))%>
+							☆
+						<% end %>
+					<%else%>
+						☆☆☆☆☆
+					<% end %>
+				</h6>
+				<p class="card-text"><%=review.description%></p>
+
+				<% if policy(review).edit? %>
+					<%= link_to 'Edit', edit_tome_review_path(@tome, review), class:'btn btn-info' %>
+				<% end %>
+
+				<% if policy(review).destroy? %>
+					<%= link_to "Supprimer", tome_review_path(@tome, review), method: :delete, class:'btn btn-info' %>
+				<% end %>
+				
+			</div>
+		</div>
+			
+			
+			<br>
+	<% end %>
+
+	<br>
+	<div class="d-grid gap-2 col-2 mx-auto">
+		<%= link_to "Laissez un avis", new_tome_review_path(@tome), class:'btn btn-info' %>
+	</div>
+</div>

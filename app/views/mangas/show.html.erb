@@ -1,26 +1,61 @@
-<h1><%= @manga.name %></h1>
-<h1><%= @manga.auteur %></h1>
-<p><%= @manga.description %></p>
-<%= cl_image_tag @manga.photo.key if @manga.photo.attached? %>
+<div class ="container">
+	<br>
+	<div class="row">
+		<div class="col-sm-2"> 
+		</div>
+			<div class="col-sm-8">
+				<div class="card text-center">
+					<%= cl_image_tag @manga.photo.key, class:"card-img-top" if @manga.photo.attached? %>
+					<div class="card-body">
+						<h5 class="card-title"><%=@manga.name%></h5>
+						<h6 class="card-subtitle mb-2 text-muted"><%=@manga.auteur%></h6>
+						<p class="card-text"><%=@manga.description%></p>
+					</div>
+				</div>
+			</div>
+	</div>
+
+	<br>
+	<h2 class="text-center">Tomes</h2>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+			<th scope="col">#</th>
+			<th scope="col">Nom du tome</th>
+			<th scope="col"></th>
+			<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<% @manga.tomes.sort_by { |t| [t.number] }.each do |tome|  %>
+			<tr>
+				<th scope="row"><%=tome.number%></th>
+				<td><%= link_to tome.title , tome_path(tome) %></td>
+				<td>
+					<% if policy(tome).edit? %> 
+						<%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
+					<% end %>
+				</td>
+				<td>
+					<% if policy(tome).destroy? %>
+						<%= link_to "Supprimer", manga_tome_path(@manga, tome), method: :delete %>
+					<% end %>
+				</td>
+			</tr>
+			<% end %>
+			
+		</tbody>
+	</table>
+
+	
+
 <br>
 
-<h2>Tomes</h2>
-<% if policy(@manga).new? %>
-<%= link_to "Ajoutez un tome", new_manga_tome_path(@manga) %>
-<% end %>
-<ul>
-  <% @manga.tomes.each do |tome| %>
-    
-    <li><%= link_to tome.title , tome_path(tome) %>  :
-    	<%= tome.number %>
-    	<% if policy(tome).edit? %> 
-    		 - <%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
-    	<% end %>
-
-    	<% if policy(tome).destroy? %>
-			- <%= link_to "Supprimer", manga_tome_path(@manga, tome), method: :delete %>
-    	<% end %>
-    </li>
-
-  <% end %>
-</ul>
+	<% if policy(@manga).new? %>
+		<div class="d-grid gap-2 col-2 mx-auto">
+			<%= link_to "Ajoutez un tome", new_manga_tome_path(@manga), class:'btn btn-info' %>
+		</div>
+	<% end %>
+</div>

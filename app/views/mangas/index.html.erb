@@ -32,11 +32,11 @@
 					<%= link_to 'Voir', manga_path(manga),  class: 'btn btn-success' %> 
 
 					<% if policy(manga).edit? %> 
-						<%= link_to 'Edit', edit_manga_path(manga), class: 'btn btn-primary' %> 
+						<%= link_to 'Modifier', edit_manga_path(manga), class: 'btn btn-primary' %> 
 					<% end %>
 
 					<% if policy(manga).destroy? %> 
-						<%= link_to 'Destroy', manga_path(manga), method: :delete, class: 'btn btn-danger' %>
+						<%= link_to 'X', manga_path(manga), method: :delete, class: 'btn btn-danger' %>
 					<% end %>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 <br>
 	<% if policy(@researchs).new? %>
 		<div class="d-grid gap-2 col-2 mx-auto">
-			<%= link_to "Ajouter un manga", new_manga_path , class:'btn btn-danger'%>
+			<%= link_to "Ajouter un manga", new_manga_path , class:'btn btn-info'%>
 		</div>
 	<% end %>
 </div>
