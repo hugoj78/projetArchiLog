@@ -1,26 +1,55 @@
-<h1> All Mangas </h1>
+<div class="container">
+
+<br>
+
+<h1 class="text-center"> Tous nos Mangas </h1>
+
+<br>
+
+	<div class="container-fluid">
+
+		<%= form_tag(mangas_path, :method => "get", id: "search-form", class:"d-flex") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search", class:"form-control me-2" %>
+		<%= submit_tag "Search", class:"btn btn-outline-success" %>
+		<% end %>
+
+	</div>
+
+	<br>
+
+<div class="row">
 
 
-<%= form_tag(mangas_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Tweets" %>
-<%= submit_tag "Search" %>
-<% end %>
-
-<ul>
 	<% @researchs.each do |manga| %>
-			<li><%= link_to manga.name , manga_path(manga) %> 
-				<% if policy(manga).edit? %> 
-					<%= link_to 'Edit', edit_manga_path(manga) %> 
-				<% end %>
+		<div class="col-sm-3">
+			<div class="card" style="margin-bottom: 1rem;">
+				<%= cl_image_tag manga.photo.key, class:"card-img-top" if manga.photo.attached? %>
+				<div class="card-body">
+					<h5 class="card-title"><%=manga.name%></h5>
+					<h6 class="card-subtitle mb-2 text-muted"><%=manga.auteur%></h6>
+					<p class="card-text text-truncate"><%=manga.description%></p>
 
-				<% if policy(manga).destroy? %> 
-				<span><%= link_to 'Destroy', manga_path(manga), method: :delete, class: 'btn btn-danger' %></span></li>
-				<% end %>
+					<%= link_to 'Voir', manga_path(manga),  class: 'btn btn-success' %> 
 
+					<% if policy(manga).edit? %> 
+						<%= link_to 'Edit', edit_manga_path(manga), class: 'btn btn-primary' %> 
+					<% end %>
+
+					<% if policy(manga).destroy? %> 
+						<%= link_to 'Destroy', manga_path(manga), method: :delete, class: 'btn btn-danger' %>
+					<% end %>
+				</div>
+			</div>
+		</div>
 	<% end %>
-</ul>
-<% if policy(@researchs).new? %>
-	<%= link_to "Add manga", new_manga_path %>
-<% end %>
+</div>
+
+<br>
+	<% if policy(@researchs).new? %>
+		<div class="d-grid gap-2 col-2 mx-auto">
+			<%= link_to "Ajouter un manga", new_manga_path , class:'btn btn-danger'%>
+		</div>
+	<% end %>
+</div>
 
 

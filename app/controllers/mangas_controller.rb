@@ -7,6 +7,7 @@ class MangasController < ApplicationController
 			@researchs = Manga.search(params[:search])
 		else
 			@researchs = Manga.all
+		end
 	end
 
 	def show

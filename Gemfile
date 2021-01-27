@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.0.0'
 
+# Bootstrap gem
+gem 'bootstrap' # -> Bootstrap for nice ihm 
+gem 'jquery-rails'
 
 gem 'devise' # -> User Model
 gem 'simple_form' # -> formulaire
