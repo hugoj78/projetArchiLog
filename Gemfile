@@ -11,7 +11,11 @@ gem 'devise' # -> User Model
 gem 'simple_form' # -> formulaire
 gem 'pundit' # -> autorisation User plus avancé
 gem 'dotenv-rails' # Images
+
+# Cloudinary gem
 gem 'cloudinary' # Hebergeur d'images
+gem 'carrierwave'
+
 gem 'sidekiq' # gem pour les fonction asynchrones
 gem 'sidekiq-failures'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
