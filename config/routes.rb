@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
 	resource :reviews
 
-	resource :researchs
 
   require "sidekiq/web"
   mount Sidekiq::Web => '/sidekiq'

@@ -5,7 +5,7 @@
     		<h2>Modifier un manga</h2>
   		</div>
   		<div class="card-body">
-			<%= simple_form_for @manga do |f| %>
+			<%= simple_form_for @manga, method: :update do |f| %>
 				<%= f.input :name %>
 				<%= f.input :description %>
 				<%= f.input :auteur %>
