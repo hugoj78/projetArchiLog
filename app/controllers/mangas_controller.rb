@@ -45,8 +45,8 @@ class MangasController < ApplicationController
 	end
 
 	def destroy
-		MangaJob.perform_now(params[:id])
-		#Manga.destroy(params[:id])
+		#MangaJob.perform_now(params[:id])
+		Manga.destroy(params[:id])
     	redirect_to mangas_path
 	end
 
