@@ -9,7 +9,7 @@ Responsabilités :
   - Authentification/Autorisation : LEIB Adrien, EGU Hugo-Jean
   - Jobs : LEIB Adrien
   - Recherche (filtre) : EGU Hugo-Jean
-  - Gems : LEIB Adrien, EGU Hugo-Jean
+  - Gems (ajout de gems pour ajouter des fonctionnalités) : LEIB Adrien, EGU Hugo-Jean
   - Seed : EGU Hugo-Jean
   - Base de données : LEIB Adrien, EGU Hugo-Jean
   - Hébergement : EGU Hugo-Jean
