@@ -1,0 +1,16 @@
+Nom du projet : Mangatheque
+
+Groupe :
+  - LEIB Adrien
+  - EGU Hugo-Jean
+
+Responsabilités :
+  - La base : LEIB Adrien, EGU Hugo-Jean
+  - Authentification/Autorisation : LEIB Adrien, EGU Hugo-Jean
+  - Jobs : LEIB Adrien
+  - Recherche (filtre) : EGU Hugo-Jean
+  - Gems : LEIB Adrien, EGU Hugo-Jean
+  - Seed : EGU Hugo-Jean
+  - Base de données : LEIB Adrien, EGU Hugo-Jean
+  - Hébergement : EGU Hugo-Jean
+  - Design (bonus) : EGU Hugo-Jean
