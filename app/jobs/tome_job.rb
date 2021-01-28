@@ -13,7 +13,7 @@ class TomeJob < ApplicationJob
     @tome2 = Tome.new
     @tome2.title = "Second Tome"
     @tome2.description = "It is a bad tome"
-    @tome2.number = 1
+    @tome2.number = 2
     @tome2.manga = manga
     @tome2.user = current_user
     @tome2.save
