@@ -4,7 +4,9 @@ Groupe : LEIB Adrien, EGU Hugo-Jean
 
 # projetArchiLogiciel
 
-Web Site url : https://rubymanga.herokuapp.com/
+* Web Site url : 
+
+https://rubymanga.herokuapp.com/
 
 * Ruby version :
 
