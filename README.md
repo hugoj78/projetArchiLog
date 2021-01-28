@@ -12,14 +12,15 @@ https://rubymanga.herokuapp.com/
 
   3.0.0
 
-* Configuration :
-
-
 * Database :
 
   rails db:migrate
 
   rails db:seed
+ 
+* Utilisation :
+
+  rails server
 
 # Application :
 
