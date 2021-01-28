@@ -14,3 +14,4 @@ Responsabilités :
   - Base de données : LEIB Adrien, EGU Hugo-Jean
   - Hébergement : EGU Hugo-Jean
   - Design (bonus) : EGU Hugo-Jean
+  - Documentation : LEIB Adrien
