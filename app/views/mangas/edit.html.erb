@@ -1,8 +1,18 @@
-<h1> Edit a manga </h1>
-<%= simple_form_for @manga do |f| %>
-	<%= f.input :name %>
-	<%= f.input :description %>
-	<%= f.input :auteur %>
-	<%= f.input :photo, as: :file %>
-	<%= f.submit %>
-<% end %> 
+<div class="container">
+	<br>
+	<div class="card text-center">
+		<div class="card-header">
+    		<h2>Modifier un manga</h2>
+  		</div>
+  		<div class="card-body">
+			<%= simple_form_for @manga do |f| %>
+				<%= f.input :name %>
+				<%= f.input :description %>
+				<%= f.input :auteur %>
+				<%= f.input :photo, as: :file %>
+				<br>
+				<%= f.submit %>
+			<% end %> 
+		</div>
+	</div>
+</div>

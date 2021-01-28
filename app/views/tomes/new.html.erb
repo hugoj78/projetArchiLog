@@ -1,7 +1,17 @@
-<%= simple_form_for [@manga, @tome] do |f| %>
-	<%= f.input :title %>
-	<%= f.input :description %>
-	<%= f.input :number %>
-	<%= f.input :photo, as: :file %>
-<%= f.submit %>
-<% end %>
+<div class="container">
+	<br>
+	<div class="card text-center">
+		<div class="card-header">
+    		<h2>Ajouter un tome</h2>
+  		</div>
+  		<div class="card-body">
+			<%= simple_form_for [@manga, @tome] do |f| %>
+				<%= f.input :title %>
+				<%= f.input :description %>
+				<%= f.input :number %>
+				<%= f.input :photo, as: :file %>
+				<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+</div>

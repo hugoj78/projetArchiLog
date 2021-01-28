@@ -1,5 +1,7 @@
 <div class ="container">
 	<br>
+	<%= link_to 'Retour', '/', class:"btn btn-outline-secondary" %> 
+	<br>
 	<div class="row">
 		<div class="col-sm-2"> 
 		</div>
@@ -23,8 +25,11 @@
 			<tr>
 			<th scope="col">#</th>
 			<th scope="col">Nom du tome</th>
-			<th scope="col"></th>
-			<th scope="col"></th>
+			
+			<% if policy(@manga).edit? %>
+				<th scope="col">Modifier</th>
+				<th scope="col">Supprimer</th>
+			<% end %>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,16 +38,17 @@
 			<tr>
 				<th scope="row"><%=tome.number%></th>
 				<td><%= link_to tome.title , tome_path(tome) %></td>
-				<td>
-					<% if policy(tome).edit? %> 
-						<%= link_to 'Editer', edit_manga_tome_path(@manga, tome) %> 
-					<% end %>
-				</td>
-				<td>
-					<% if policy(tome).destroy? %>
-						<%= link_to "Supprimer", manga_tome_path(@manga, tome), method: :delete %>
-					<% end %>
-				</td>
+				<% if policy(tome).edit? %> 
+					<td>
+						<%= link_to 'Modifier', edit_manga_tome_path(@manga, tome), class:"btn btn-primary" %> 
+					</td>
+				<% end %>
+				<% if policy(tome).destroy? %>
+					<td>
+						<%= link_to "Supprimer", manga_tome_path(@manga, tome), method: :delete, class:"btn btn-danger" %>
+					
+					</td>
+				<% end %>
 			</tr>
 			<% end %>
 			
