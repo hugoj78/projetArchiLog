@@ -14,7 +14,6 @@ gem 'dotenv-rails' # Images
 
 # Cloudinary gem
 gem 'cloudinary' # Hebergeur d'images
-gem 'carrierwave'
 
 gem 'sidekiq' # gem pour les fonction asynchrones
 gem 'sidekiq-failures'
