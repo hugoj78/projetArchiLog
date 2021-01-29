@@ -29,7 +29,7 @@
 			<div class="card-body">
 				<h5 class="card-title"><%=review.user.email%></h5>
 				<h6 class="card-subtitle mb-2 text-muted"> note : 
-					<%if review.rating != 0%>
+					<%if review.rating > 0%>
 						<%for i in 1..review.rating.clamp(1,5)%>
 							⭐
 						<%end%>
