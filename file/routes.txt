@@ -1,0 +1,15 @@
+## Liste des routes disponibles
+
+- /  -> get -> voir l'ensemble des mangas. ( admin et user )
+- /mangas/{idmanga}/  -> get -> voir un manga en détail et ses tomes. ( admin et user ).
+- /mangas/{idmanga}/edit -> get -> formulaire pour modifier un manga ( admin ).
+- /mangas/{idmanga}/edit -> post -> envoie des modifications d'un manga ( admin ).
+- /mangas/{idmanga}/delete -> delete -> suppréssion d'un manga ( admin ).
+- /tomes/{idtome} -> get -> voir un tome en détail et ses reviews. ( admin et user ).
+- /mangas/{idmanga}/tomes/{idtome}/edit -> get -> formulaire pour modifier un tome ( admin ).
+- /mangas/{idmanga}/tomes/{idtome}/edit ->  post -> envoie des modifications d'un tome ( admin ).
+- /mangas/{idmanga}/tomes/{idtome}/delete ->  delete -> suppréssion d'un tome ( admin ).
+- /tomes/{idtome}/reviwies/{idreview}/edit-> get -> formulaire pour modifier une review ( admin et user ).
+- /tomes/{idtome}/reviwies/{idreview}/edit ->  post -> envoie des modifications d'une review ( admin et user).
+- /tomes/{idtome}/reviwies/{idreview}/delete ->  delete -> suppréssion d'une review ( admin et user ).
+- /mangas?search={name}1commit=Search -> get -> recherche d'un manga à partir du nom saisie ( admin et user ).
